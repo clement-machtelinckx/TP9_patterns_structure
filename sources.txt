@@ -1,0 +1,12 @@
+C:\project_ynov\Paterne_structure\archi-log-tp9-new\src\Main.java
+C:\project_ynov\Paterne_structure\archi-log-tp9-new\src\tp9\Book.java
+C:\project_ynov\Paterne_structure\archi-log-tp9-new\src\tp9\IBook.java
+C:\project_ynov\Paterne_structure\archi-log-tp9-new\src\tp9\adapter\BookStoreAdapter.java
+C:\project_ynov\Paterne_structure\archi-log-tp9-new\src\tp9\adapter\IBookStore.java
+C:\project_ynov\Paterne_structure\archi-log-tp9-new\src\tp9\adapter\OldBookStore.java
+C:\project_ynov\Paterne_structure\archi-log-tp9-new\src\tp9\decorator\BookDecorator.java
+C:\project_ynov\Paterne_structure\archi-log-tp9-new\src\tp9\decorator\LibraryBookDecorator.java
+C:\project_ynov\Paterne_structure\archi-log-tp9-new\src\tp9\facade\LibraryFacade.java
+C:\project_ynov\Paterne_structure\archi-log-tp9-new\src\tp9\proxy\BookAccess.java
+C:\project_ynov\Paterne_structure\archi-log-tp9-new\src\tp9\proxy\ProxyBookAccess.java
+C:\project_ynov\Paterne_structure\archi-log-tp9-new\src\tp9\proxy\RealBookAccess.java

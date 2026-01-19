@@ -9,25 +9,24 @@ import tp9.decorator.LibraryBookDecorator;
 
 // Facade pour simplifier l'accès client
 public class LibraryFacade {
-    private OldBookStore oldBookStore;
-    private IBookStore bookStoreAdapter;
-    // autres attributs si nécessaire
+    private final OldBookStore oldBookStore;
+    private final IBookStore bookStoreAdapter;
 
     public LibraryFacade(OldBookStore oldBookStore) {
-        //TODO à compléter
+        this.oldBookStore = oldBookStore;
+        this.bookStoreAdapter = new BookStoreAdapter(oldBookStore);
     }
-
 
     // Méthodes simplifiées pour l'accès client
     public IBook getBook(String title) {
-        // Logique pour obtenir un aperçu du livre
-        //TODO à compléter
-        return null ;
+        return bookStoreAdapter.fetchBook(title);
     }
 
     // Méthode qui renvoie un libraryBookDecorator
     public IBook libraryBook(String title) {
-        //TODO à compléter
-        return null;
+        Book book = bookStoreAdapter.fetchBook(title);
+        LibraryBookDecorator decorated = new LibraryBookDecorator(book);
+        decorated.setTitle(book.getTitle() + " (Library book)");
+        return decorated;
     }
 }

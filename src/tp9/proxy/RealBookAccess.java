@@ -4,23 +4,19 @@ import tp9.Book;
 
 // Classe réelle
 public class RealBookAccess implements BookAccess {
-    private Book book;
-    // Logic for reading the full book
+    private final Book book;
 
     public RealBookAccess(Book book) {
-        //TODO à compléter
+        this.book = book;
     }
 
     @Override
     public String read() {
-        //TODO à compléter
-        return null ;
+        return "Reading: " + book.getTitle();
     }
 
     @Override
     public String preview() {
-        //TODO à compléter
-        return null ;
+        return book.preview();
     }
-
 }

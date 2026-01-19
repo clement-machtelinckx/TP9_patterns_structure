@@ -1,44 +1,71 @@
 package tp9.decorator;
-import tp9.Book;
 
 import java.time.LocalDate;
+import tp9.Book;
 
 // Décorateur pour ajouter des fonctionnalités de bibliothèque
 public class LibraryBookDecorator implements BookDecorator {
-    private Book book;
-    private boolean isLoaned; // prêt en cours ou non
-    private LocalDate date; // date de prêt
+    private final Book book;
+    private boolean isLoaned;     // prêt en cours ou non
+    private LocalDate dueDate;    // date de retour prévue
 
     public LibraryBookDecorator(Book book) {
-        //TODO à compléter
+        this.book = book;
+        this.isLoaned = false;
+        this.dueDate = null;
     }
 
-    // définit un prêt. isLoaned de vient vrai, et on fournit la date du prêt
+    // définit un prêt. isLoaned devient vrai, et on fournit la date limite de retour
     public void loanOut(LocalDate dueDate) {
-        //TODO à compléter
+        this.isLoaned = true;
+        this.dueDate = dueDate;
     }
 
     // Le livre a été ramené, fin du prêt
     public void returnBook() {
-        //TODO à compléter
+        this.isLoaned = false;
+        this.dueDate = null;
     }
 
     public boolean isLoanedOut() {
-        //TODO à compléter
-        return false ;
+        return isLoaned;
     }
 
     public LocalDate getDueDate() {
-        //TODO à compléter
-        return null ;
+        return dueDate;
     }
 
-    // Implémentation des méthodes héritées de Book
-    //TODO à compléter
+    // Délégation des méthodes IBook vers le Book wrappé
+    @Override
+    public String getTitle() {
+        return book.getTitle();
+    }
 
+    @Override
+    public void setTitle(String title) {
+        book.setTitle(title);
+    }
 
-    public String toString ()
-    {
-        return book.getTitle() + (isLoanedOut() ? " has been loaned." : " is available for a loan.");
+    @Override
+    public double getPrice() {
+        return book.getPrice();
+    }
+
+    @Override
+    public void setPrice(double price) {
+        book.setPrice(price);
+    }
+
+    @Override
+    public String preview() {
+        return book.preview();
+    }
+
+    @Override
+    public String toString() {
+        if (!isLoanedOut()) {
+            return book.getTitle() + " is available for a loan.";
+        }
+        return book.getTitle() + " has been loaned out. Due date: " + dueDate;
     }
 }
